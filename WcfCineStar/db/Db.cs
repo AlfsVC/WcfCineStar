@@ -1,4 +1,4 @@
-﻿using System.Configuration;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -13,7 +13,7 @@ namespace WcfCineStar.db
             SqlDataAdapter da = null;
             public Db(string _cn)
             {
-            cn = new SqlConnection("Data Source=SQL8006.site4now.net;Initial Catalog=db_a9d4c4_cinesta;User Id=db_a9d4c4_cinesta_admin;Password=Senati2023@");
+            cn = new SqlConnection(ConfigurationManager.ConnectionStrings[_cn].ConnectionString);
             cmd = new SqlCommand("", cn);
             }
             internal void Sentencia(string _sql)

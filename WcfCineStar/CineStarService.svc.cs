@@ -1,4 +1,4 @@
-﻿using System.Data;
+using System.Data;
 
 namespace WcfCineStar
 {
@@ -9,7 +9,37 @@ namespace WcfCineStar
         db.Db db = new db.Db("cnCineStar");
         public DataSet getCines()
         {
-            db.Sentencia("sp_getCines");
+            db.Sentencia("sp_getCines ");
+            return db.getDataSet();
+        }
+        public DataSet getCine(string idCine)
+        {
+            db.Sentencia("sp_getCine");
+            db.Parametros(idCine);
+            return db.getDataSet();
+        }
+        public DataSet getTarifas(string idCine)
+        {
+            db.Sentencia("sp_getCineTarifas");
+            db.Parametros(idCine);
+            return db.getDataSet();
+        }
+        public DataSet getPeliculas(string idPeliculas)
+        {
+            db.Sentencia("sp_getPeliculas");
+            db.Parametros(idPeliculas);
+            return db.getDataSet();
+        }
+        public DataSet getPelicula(string idPeliculas)
+        {
+            db.Sentencia("sp_getPelicula");
+            db.Parametros(idPeliculas);
+            return db.getDataSet();
+        }
+        public DataSet getCinePeliculas(string idCine)
+        {
+            db.Sentencia("sp_getCinePeliculas");
+            db.Parametros(idCine);
             return db.getDataSet();
         }
     }
